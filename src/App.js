@@ -3,7 +3,8 @@ import LandingPage from "./components/LandingPage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 
-function App() {
+const App = () => {
+  
   return (
     <Routes> 
       <Route path='/' element={<LandingPage/>} />
