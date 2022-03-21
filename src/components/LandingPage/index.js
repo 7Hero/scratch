@@ -1,17 +1,35 @@
-import React from 'react'
+import * as React from 'react'
 import logo from '../../logo.svg'
-import { Container } from '@mui/material'
+import { Typography, Stack } from '@mui/material'
+import { Box } from '@mui/system';
+import { Link } from 'react-router-dom';
+import Image from '../../Image.png'
+import './index.css';
+
+
 const LandingPage = () => {
+
+  const containerStyle = {
+    backgroundImage:`url(${Image})`,
+    height:'100%',
+    backgroundPosition: 'top right',
+    backgroundRepeat: 'no-repeat'
+  }
+
   return (
-    <>
-    <Container sx= {{ mx: 12 }}>
-      <img style= {{marginTop:'72px'}}src={logo}/>
-      <div style= {{marginTop:'100px'}}>
-          <p>Vasea</p>
-          <p>Text mic</p>
-      </div>
-    </Container>
-    </>
+    <div style={containerStyle}>
+    <Box sx={{ mx:12}} >
+      <img style= {{marginTop:'72px'}} src={logo} alt='logo'/>
+      <Stack sx= {{ maxWidth: '510px', marginTop:'100px' }} >
+        <Typography display="block" variant='largeText' >Join over 50 millions people sharing recipes everyday</Typography>
+        <Typography display="block" variant='smallText' > Never run out of ideas again. Try new foods, ingredients, cooking style, and more </Typography>
+        <Stack mt={2} direction='row' justifyContent='space-between' >
+          <Link to='login'> <div className='button' > Join Scratch </div> </Link>
+          <Link to='login'><div className='button butt'> Learn More</div></Link>
+        </Stack>
+      </Stack>
+    </Box>
+    </div>
   )
 }
 
