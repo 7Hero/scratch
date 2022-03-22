@@ -1,33 +1,39 @@
-import { Box, Button, Container, Link, TextField, Typography } from "@mui/material";
+import { Box, Link, TextField, Typography } from "@mui/material";
 import AuthLayout from "../../Layouts/AuthLayout";
-import { styled } from "@mui/material/styles"
-import { height } from "@mui/system";
 import { useState } from "react";
 import LoginButton from "../styles/LoginButton.js"
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  
+  console.log(window.users);
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   
   const navigate = useNavigate();
 
+  const [loginStyle,setLoginStyle] = useState({error:false,helperText:''})
+
   const handleLogin = () => {
-    console.log(email,password)
+    window.users.some( el => {
+      if(el.email == email && el.login.password == password){
+        navigate('/profile')
+      }else {
+        setLoginStyle({error: true, helperText:'Wrong Email or Password'})
+      }
+    })
   }
 
   const handleClick = () => {
     // Handle validation.
     navigate('/sign_up')
   }
-
   return (
     <AuthLayout>
       <Box width='325px'>
         <Typography variant='mediumText' display='block' >Welcome Back!</Typography>
         <Typography variant='smallText' mt={1.25}> Please login to continue </Typography>
-        <TextField 
+        <TextField
+          {...loginStyle}
           required 
           defaultValue={email}
           label='Email address'
@@ -35,10 +41,12 @@ const Login = () => {
           sx={{mt:'60px',width:'100%'}}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <TextField 
+        <TextField
+          {...loginStyle}
+          helperText=''
           required 
           defaultValue={password}
-          label='Passwrod'
+          label='Password'
           variant='standard'
           type='password'
           sx={{mt:'30px',width:'100%'}}

@@ -5,7 +5,7 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material';
-
+import Users from './utils/users.json'
 const theme = createTheme({
   typography: {
     fontFamily: 'Nunito',
@@ -27,6 +27,8 @@ const theme = createTheme({
     }
   }
 })
+
+window.users = Users;
 
 render(
   <ThemeProvider theme={theme}>

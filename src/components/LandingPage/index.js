@@ -24,8 +24,8 @@ const LandingPage = () => {
         <Typography display="block" variant='largeText' >Join over 50 millions people sharing recipes everyday</Typography>
         <Typography display="block" variant='smallText' > Never run out of ideas again. Try new foods, ingredients, cooking style, and more </Typography>
         <Stack mt={2} direction='row' justifyContent='space-between' >
-          <Link to='login'> <div className='button' > Join Scratch </div> </Link>
-          <Link to='login'><div className='button butt'> Learn More</div></Link>
+          <Link to='sign_up'> <div className='button' > Join Scratch </div> </Link>
+          <Link to='sign_up'><div className='button butt'> Learn More</div></Link>
         </Stack>
       </Stack>
     </Box>

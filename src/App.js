@@ -1,11 +1,12 @@
-import { Button } from "@mui/material";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom"
 import LandingPage from "./components/LandingPage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import './App.css'
-const App = () => {
+import userData from './utils/fetchUser.js';
 
+const App = () => {
+  
   return (
     <Routes>
       <Route path='/' element={<LandingPage/>} />
