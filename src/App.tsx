@@ -1,11 +1,9 @@
-import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom"
 import LandingPage from "./components/LandingPage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import userData from './utils/fetchUser.js';
 
-const App = () => {
+const App: React.FC = () => {
   
   return (
     <Routes>

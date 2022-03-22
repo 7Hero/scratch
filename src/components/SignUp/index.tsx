@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import AuthLayout from "../../Layouts/AuthLayout";
 import LoginButton from "../styles/LoginButton.js";
 import validator from 'validator';
+import { User, ErrorInput } from "../../types/interfaces/user"
 
-const defaultState = {error: false, helperText: ''};
+const defaultState: ErrorInput = { error: false, helperText: '' };
 
 const SignUp = () => {
 
@@ -19,11 +20,11 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     navigate('/login');
   }
 
-  const handleSignUp = () => {
+  const handleSignUp = (): void => {
     console.log(name,email,password);
     if(!name){
       setNameStyle({error: true, helperText:' Empty Field'})
@@ -37,7 +38,7 @@ const SignUp = () => {
     }else{
       setNameStyle(defaultState);
     }
-    if(window.users.some( el => el.email == email )){
+    if(window.users.some( (el: User) => el.email === email )){
       setEmailStyle({error:true,helperText:'Email already exists'})
       return;
     }

@@ -6,15 +6,14 @@ import { Link } from 'react-router-dom';
 import Image from '../../Image.png'
 import './index.css';
 
+const containerStyle: React.CSSProperties = {
+  backgroundImage:`url(${Image})`,
+  height:'100%',
+  backgroundPosition: 'top right',
+  backgroundRepeat: 'no-repeat'
+}
 
 const LandingPage = () => {
-
-  const containerStyle = {
-    backgroundImage:`url(${Image})`,
-    height:'100%',
-    backgroundPosition: 'top right',
-    backgroundRepeat: 'no-repeat'
-  }
 
   return (
     <div style={containerStyle}>

@@ -3,27 +3,30 @@ import AuthLayout from "../../Layouts/AuthLayout";
 import { useState } from "react";
 import LoginButton from "../styles/LoginButton.js"
 import { useNavigate } from "react-router-dom";
+import { User, ErrorInput } from "../../types/interfaces/user"
 
 const Login = () => {
-  console.log(window.users);
+  
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   
   const navigate = useNavigate();
 
-  const [loginStyle,setLoginStyle] = useState({error:false,helperText:''})
+  const [loginStyle,setLoginStyle] = useState<ErrorInput>({ error:false, helperText:'' })
 
-  const handleLogin = () => {
-    window.users.some( el => {
-      if(el.email == email && el.login.password == password){
+  const handleLogin = (): void => {
+    window.users.some( (el: User) => {
+      if(el.email === email && el.login.password === password){
         navigate('/profile')
+        return true;
       }else {
         setLoginStyle({error: true, helperText:'Wrong Email or Password'})
+        return true;
       }
     })
   }
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     // Handle validation.
     navigate('/sign_up')
   }
