@@ -2,26 +2,25 @@ import { Box, Button, Container, Link, TextField, Typography } from "@mui/materi
 import AuthLayout from "../../Layouts/AuthLayout";
 import { styled } from "@mui/material/styles"
 import { height } from "@mui/system";
-
-const LoginButton = styled(Button)({
-  boxShadow: 'none',
-  textTransform: 'none',
-  fontSize: 16,
-  fontFamily:'Nunito',
-  backgroundColor: '#30BE76',
-  width:'100%',
-  fontWeight:700,
-  marginTop:'40px',
-  height:'50px',
-  borderRadius:'8px',
-  filter: 'drop-shadow(0px 6px 20px rgba(13, 51, 32, 0.1))',
-  '&:hover': {
-    backgroundColor: '#3CD688',
-    boxShadow: 'none',
-  }
-})
+import { useState } from "react";
+import LoginButton from "../styles/LoginButton.js"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    console.log(email,password)
+  }
+
+  const handleClick = () => {
+    // Handle validation.
+    navigate('/sign_up')
+  }
 
   return (
     <AuthLayout>
@@ -30,25 +29,27 @@ const Login = () => {
         <Typography variant='smallText' mt={1.25}> Please login to continue </Typography>
         <TextField 
           required 
-          defaultValue=''
+          defaultValue={email}
           label='Email address'
           variant='standard'
           sx={{mt:'60px',width:'100%'}}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField 
           required 
-          defaultValue=''
+          defaultValue={password}
           label='Passwrod'
           variant='standard'
           type='password'
           sx={{mt:'30px',width:'100%'}}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <LoginButton variant='contained'>
+        <LoginButton variant='contained' onClick={handleLogin}>
             Login
         </LoginButton>
         <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' mt='30px'>
           <Typography variant='smallText' display='block' > New to Scratch? </Typography>
-          <Link underline='none' component='button' variant='mediumText' color='#30BE76' fontSize='16px'> Create Account Here</Link>
+          <Link underline='none' component='button' variant='mediumText' color='#30BE76' fontSize='16px' onClick={handleClick}> Create Account Here</Link>
         </Box>
       </Box>
     </AuthLayout>
