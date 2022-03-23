@@ -8,7 +8,7 @@ import { User, ErrorInput } from "../../types/interfaces/user"
 
 const defaultState: ErrorInput = { error: false, helperText: '' };
 
-const SignUp = () => {
+const SignUp: React.FC = () => {
 
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
@@ -49,7 +49,7 @@ const SignUp = () => {
       setNameStyle(defaultState);
     }
 
-    window.users.push({...window.users[0],email,login:{username:name,password}});
+    window.users.push({...window.users[0], login: {...window.users[0].login, username: name, password}, email });
     localStorage.logged = email;
     navigate('/profile')
     

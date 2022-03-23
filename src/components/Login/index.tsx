@@ -5,7 +5,7 @@ import LoginButton from "../styles/LoginButton.js"
 import { useNavigate } from "react-router-dom";
 import { User, ErrorInput } from "../../types/interfaces/user"
 
-const Login = () => {
+const Login: React.FC = () => {
   
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');

@@ -13,7 +13,7 @@ const containerStyle: React.CSSProperties = {
   backgroundRepeat: 'no-repeat'
 }
 
-const LandingPage = () => {
+const LandingPage: React.FC = () => {
 
   return (
     <div style={containerStyle}>
