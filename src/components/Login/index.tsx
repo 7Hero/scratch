@@ -17,13 +17,14 @@ const Login: React.FC = () => {
   const handleLogin = (): void => {
     window.users.some( (el: User) => {
       if(el.email === email && el.login.password === password){
-        navigate('/profile')
+        navigate('/profile');
         return true;
-      }else {
-        setLoginStyle({error: true, helperText:'Wrong Email or Password'})
-        return true;
+      } else {
+        return false;
       }
-    })
+    });
+    
+    setLoginStyle({error: true, helperText:'Wrong Email or Password'})
   }
 
   const handleClick = (): void => {
