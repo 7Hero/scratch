@@ -15,14 +15,13 @@ const App: React.FC = () => {
       navigate('profile');
     }
   },[])
-  
+
   return (
     <Routes>
       <Route path='/' element={<LandingPage/>} />
       <Route path='login' element={<Login/>} />
       <Route path='sign_up' element={<SignUp/>} />
-      {/* O sa fie protected route  */}
-      <Route path='profile' element={<PrivateRoute element={<NavLayout/>} />}>
+      <Route path='profile' element={ <PrivateRoute element={<NavLayout/>} /> }>
         <Route index element={ <Profile/>}/>
       </Route>
     </Routes>
