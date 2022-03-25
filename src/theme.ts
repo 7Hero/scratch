@@ -9,24 +9,17 @@ declare module '@mui/material/Typography' {
     smallText: true;
     mediumText: true;
     title: true;
+    textGray: true;
   }
-  interface ExtendedTypographyOptions extends TypographyOptions {
-    largeText: React.CSSProperties;
-    smallText: React.CSSProperties;
-    mediumText: React.CSSProperties;
-    title: React.CSSProperties;
-}
 }
 
-interface IThemeOptions extends ThemeOptions {
-  typography: ExtendedTypographyOptions;
-}
 
 interface ExtendedTypographyOptions extends TypographyOptions {
     largeText: React.CSSProperties;
     smallText: React.CSSProperties;
     mediumText: React.CSSProperties;
     title: React.CSSProperties;
+    textGray: React.CSSProperties;
 }
 
 const theme = createTheme({
@@ -49,8 +42,22 @@ const theme = createTheme({
       fontWeight:700
     },
     title: {
-      fontSize: 16,
+      fontFamily: 'Nunito',
+      fontSize: 17,
+      fontWeight: 700,
+      color:'black'
+    },
+    h4: {
+      fontFamily: 'Nunito',
+      fontSize: 20,
+      fontWeight: 700,
+      color:'black'
+    },
+    textGray: {
+      fontFamily: 'Nunito',
+      fontSize: 14,
       fontWeight: 600,
+      color:'rgba(3, 15, 9, 0.5)'
     }
   } as ExtendedTypographyOptions,
 } as ThemeOptions)
