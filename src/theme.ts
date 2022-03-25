@@ -10,6 +10,7 @@ declare module '@mui/material/Typography' {
     mediumText: true;
     title: true;
     textGray: true;
+    recipeTitle: true;
   }
 }
 
@@ -58,6 +59,12 @@ const theme = createTheme({
       fontSize: 14,
       fontWeight: 600,
       color:'rgba(3, 15, 9, 0.5)'
+    },
+    recipeTitle:{
+      fontFamili: 'Nunito',
+      fontSize:18,
+      fontWeight:600,
+      color:'black'
     }
   } as ExtendedTypographyOptions,
 } as ThemeOptions)
