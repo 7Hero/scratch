@@ -12,10 +12,11 @@ const containerStyle = {
   backgroundSize:'cover'
 }
 
+
 const AuthLayout: React.FC = ({ children }) => {
 
 return (
-  <div className="vasea" style={containerStyle} >
+  <div style={containerStyle} >
 
     <div style={{background:'linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1))',height:'100vh',justifyContent:'center',alignItems:'center',display:'flex'}}>
       <Box sx={{ width:912,height: 570, backgroundColor: 'white', borderRadius:1,display:'flex'}}>
